@@ -52,6 +52,7 @@ var brokeJoke = function() {
 		if (typeof navigator[i] != "function") messages.push("<li>" + i + ": \"" + navigator[i] + "\"</li>");
 	}
 	messages.push("</ul>");
+	messages.push("OR, you can fix it yourself! The code for the article <a href=\"https://github.com/zeh/schizo.js\">can be found over at GitHub</a>. Feel free to change it and do a pull request.\n");
 	messages.push("Thanks!\n");
 	
 	showOSpunchline = false;
