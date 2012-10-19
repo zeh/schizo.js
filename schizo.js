@@ -200,16 +200,20 @@ One day, maybe, we'll have navigator properties that make sense.
 
     var _ua = {};
 
-    _ua.ANDROID = (navigator.userAgent.indexOf("Android") > -1);
-    _ua.CHROME = (navigator.userAgent.indexOf("Chrome") > -1);
-    _ua.FIREFOX = (navigator.userAgent.indexOf("Firefox") > -1);
-    _ua.MAXTHON = (navigator.userAgent.indexOf("Maxthon") > -1);
-    _ua.SAFARI = (navigator.userAgent.indexOf("Safari") > -1);
-    _ua.WIN_NT = (navigator.userAgent.indexOf("Windows NT") > -1);
+    _ua.ANDROID = uaContains("Android");
+    _ua.CHROME = uaContains("Chrome");
+    _ua.FIREFOX = uaContains("Firefox");
+    _ua.MAXTHON = uaContains("Maxthon");
+    _ua.SAFARI = uaContains("Safari");
+    _ua.WIN_NT = uaContains("Windows NT");
 
-    _ua.MOBILE = (navigator.userAgent.indexOf("Mobile") > -1 && (navigator.userAgent.indexOf("Safari") > -1 || navigator.userAgent.indexOf("AppleWebKit")));
+    _ua.MOBILE = uaContains("Mobile") && (uaContains("Safari") || uaContains("AppleWebKit"));
     _ua.DESKTOP = !_ua.MOBILE && !_ua.MAXTHON;
 
+
+    function uaContains(str){
+        return navigator.userAgent.indexOf(str) > -1;
+    }
 
 
     // =================
