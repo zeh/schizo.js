@@ -1,0 +1,212 @@
+
+<p>Oh, hey, hello there!</p>
+
+{{#appName.NETSCAPE}}
+    {{! Chrome, FF and Safari use "Netscape" for appName }}
+
+    <p>I see you're visiting this website using a <strong>Netscape</strong> browser. That browser's a bit old, don't you think? Why are you still using it?</p>
+    <p>Wait, you're not using that, you say? Sorry, my bad. I must have looked in the wrong place. I was looking at your browser's <code>navigator.appName</code> property. It says "Netscape" right there! But that's not the right place to look, I suppose. I should have known.</p>
+
+    {{#vendor.CHROME_OR_SAFARI}}
+        {{! Chrome or Safari }}
+
+        <p>I got it! I know, you're using <strong>Mozilla</strong>. Wait, what's that exactly? Is that a real browser name? Isn't that Netscape anyway? Or maybe it's Firebird, or Firefox, right?</p>
+        <p>Uh? You're not using that either? Aw, man. Wrong place again. I was looking at the <code>navigator.appCodeName</code> property. Damn, I thought that would work!</p>
+
+        {{#product.GECKO}}
+
+            <p>Alright, let's try again. I think you're using something called... <strong>Gecko</strong>? What the hell is that? That's what it says on <code>navigator.product</code>. Are you kidding me?</p>
+            <p>So you are not using that either? It figures. Geez.</p>
+
+
+            {{#ua.MOBILE}}
+                {{! Mobile... }}
+
+                {{#ua.ANDROID}}
+                    {{! Mobile / Android }}
+                    <p>Ah, I see it now. You're on a mobile device! How awesome! And you're using... <strong>Safari</strong> for iOS! That's it! You're an Apple fan, I assume.</p>
+                    <p>Oh, no? Uh, really? Wow, my bad. Your browser's <code>navigator.userAgent</code> saying "Mobile Safari" threw me off. I guess it's not very accurate.</p>
+
+                    {{#ua.CHROME}}
+                        {{! Mobile / Android / Chrome browser }}
+                        <p>Ok... maybe... is that Chrome? Your browser's <code>navigator.userAgent</code> says so, at least. It is? Great. Makes sense. It looks like Safari, I guess.</p>
+                        <p>Now I just need to know your version. You're using Chrome version <strong>{{version.appVersion}}</strong>, right?</p>
+                        <p>Wait, wrong again? Are you sure? It says you're using version {{version.appVersion}} right in your browser's <code>navigator.appVersion</code> property!</p>
+                        <p>Ah, I see the problem. Your browser's <code>navigator.userAgent</code> says {{version.appVersion}} is the Mozilla version. But you're not using Mozilla, right? Right. So maybe it just thinks it is Mozilla version {{version.appVersion}}. It happens.</p>
+                        <p>Alright, alright. Well, maybe I should look again.</p>
+                        <p>Well, here's something. Near the end of <code>navigator.userAgent</code> there's something that says "Chrome" with the number <strong>{{version.uaChrome}}</strong> next to it. Is that it? It looks like it, it's a crazy number. Chrome loves those.</p>
+                        <p>It is? It is?! Incredible! Wow, I finally got it right. Man. That was tougher than I expected!</p>
+                        <p>Now I only need to know your operating system. That should be easy; your browser's <code>navigator.userAgent</code> will tell me that. That's <strong>Linux</strong>, right? You nerd!</p>
+                    {{/ua.CHROME}}
+
+                    {{^ua.CHROME}}
+                        {{! Mobile / Android / Native browser probably }}
+                        <p>Ok... maybe... is that... I have no idea what that is. Native Android browser, I suppose? Yeah. I'll call it that. Does that even have a version number?</p>
+                        <p>Anyway, I think you need to get a real phone and run Chrome. Just saying.</p>
+                    {{/ua.CHROME}}
+                {{/ua.ANDROID}}
+
+
+                {{^ua.CHROME}}
+                    {{! Mobile / iOS }}
+                    <p>Ah, I see it now. You're on a mobile device! How awesome! And you're using... <strong>Safari</strong> for iOS.</p>
+                    <p>Is that right? It is, right?</p>
+                    <p>What? Version? Who cares about version? I'll just assume you're using the latest and greatest. Isn't that what everyone else does?</p>
+                {{/ua.CHROME}}
+
+            {{/ua.MOBILE}}
+
+
+
+            {{^ua.MOBILE}}
+
+                {{#ua.MAXTHON}}
+                    {{! Maxthon, mobile }}
+                    <p>Wait! I know! You're using <strong>Safari</strong>! It says so on the end of your <code>navigator.userAgent</code> string! Ha!</p>
+                    <p>No? Uh, really? Well... ok, let me look again.</p>
+                    <p>Ok... maybe... is that Chrome? Your browser's <code>navigator.userAgent</code> says so, at least. It is?</p>
+                    <p>No? No??!? What, are you kidding me? It says so right there! Chrome version {{version.uaChrome}}!!</p>
+                    <p>Ok, ok. I believe you. Let me look again.</p>
+                    <p>Well, there's something on your <code>navigator.userAgent</code> that says <strong>Maxthon</strong>. That's a weird name. Is that it? It can't be it.</p>
+                    <p>It is? really? Geez, is that a real browser? Never heard of it. How am I supposed to know?</p>
+                    <p>Well, whateher. Now I just need to know your version. You're using Maxthon version <strong>{{version.appVersion}}</strong>, right?</p>
+                    <p>Wait, wrong again? Are you sure? It says you're using version {{version.appVersion}} right in your browser's <code>navigator.appVersion</code> property!</p>
+                    <p>Ah, I see the problem. Your browser's <code>navigator.userAgent</code> says {{version.appVersion}} is the Mozilla version. But you're not using Mozilla, right? Right. So maybe it just thinks it is Mozilla version {{version.appVersion}}. It happens.</p>
+                    <p>Alright, alright. Well, maybe I should look again.</p>
+                    <p>Well, here's something. Near the end of <code>navigator.userAgent</code> there's something that says "Chrome" with the number <strong>{{version.uaMaxthon}}</strong> next to it. Is that it? It looks like it, it's a crazy number. Chrome loves those.</p>
+                    <p>It is? It is?! Incredible! Wow, I finally got it right. Man. That was tougher than I expected!</p>
+                {{/ua.MAXTHON}}
+
+                {{#ua.DESKTOP}}
+
+                    {{#ua.SAFARI}}
+                        {{! Desktop / Chrome or Safari or maybe something else webkit-based }}
+
+                        {{#ua.CHROME}}
+                            {{! Desktop / Chrome }}
+                            <p>Wait! I know! You're using <strong>Safari</strong>! It says so on the end of your <code>navigator.userAgent</code> string! Ha!</p>
+                            <p>No? Uh, really? Well... ok, let me look again.</p>
+                            <p>Ok... maybe... is that Chrome? Your browser's <code>navigator.userAgent</code> says so, at least. It is? Great. Makes sense. It looks like Safari, I guess.</p>
+                            <p>Now I just need to know your version. You're using Chrome version <strong>{{version.appVersion}}</strong>, right? Doesn't that number seem low to you? I mean, Chrome is supposed to have auto-update!</p>
+                            <p>Wait, wrong again? Are you sure? It says you're using version {{version.appVersion}} right in your browser's <code>navigator.appVersion</code> property!</p>
+                            <p>Ah, I see the problem. Your browser's <code>navigator.userAgent</code> says {{version.appVersion}} is the Mozilla version. But you're not using Mozilla, right? Right. So maybe it just thinks it is Mozilla version {{version.appVersion}}. It happens.</p>
+                            <p>Alright, alright. Well, maybe I should look again.</p>
+                            <p>Well, here's something. Near the end of <code>navigator.userAgent</code> there's something that says "Chrome" with the number <strong>{{version.uaChrome}}</strong> next to it. Is that it? It looks like it, it's a crazy number. Chrome loves those.</p>
+                            <p>It is? It is?! Incredible! Wow, I finally got it right. Man. That was tougher than I expected!</p>
+
+                        {{/ua.CHROME}}
+
+                        {{^ua.CHROME}}
+                            {{! Desktop / Safari }}
+                            <p>Wait! I know! You're using <strong>Safari</strong>! It says so on the end of your <code>navigator.userAgent</code> string! Ha!</p>
+                            <p>Now I just need to know your version. You're using Safari version <strong>{{version.appVersion}}</strong>, right? Right?</p>
+                            <p>Wait, wrong again? Are you sure? It says you're using version {{version.appVersion}} right in your browser's <code>navigator.appVersion</code> property!</p>
+                            <p>Ah, I see the problem. Your browser's <code>navigator.userAgent</code> says {{version.appVersion}} is the Mozilla version. But you're not using Mozilla, right? Right. So maybe it just thinks it is Mozilla version {{version.appVersion}}. It happens.</p>
+                            <p>Alright, alright. Well, maybe I should look again.</p>
+                            <p>Well, here's something. In the end of <code>navigator.userAgent</code> there's something that says "Safari" with the number <strong>{{version.uaSafari}}</strong> right next to it. That's gotta be it, right? Safari version {{version.uaSafari}}?!</p>
+                            <p>No? No?!?! What! Yeah, I thought that number looked too big. But it's right next to the browser name!</p>
+                            <p>Well, last try. There's something there that also says "Version" with the number <strong>{{version.uaVersion}}</strong> next to it. Is that it?</p>
+                            <p>It is? It is?! Incredible! Wow, I finally got it right. Man. That was tougher than I expected!</p>
+                        {{/ua.CHROME}}
+
+                    {{/ua.SAFARI}}
+
+                    {{^ua.SAFARI}}
+                        {{! Broken Desktop }}
+                        {{> broke_joke}}
+                    {{/ua.SAFARI}}
+
+                {{/ua.DESKTOP}}
+
+            {{/ua.MOBILE}}
+
+
+        {{/product.GECKO}}
+
+        {{^product.GECKO}}
+            {{! Broken, chrome and safari should report as gecko }}
+            {{> broke_joke}}
+        {{/product.GECKO}}
+
+
+    {{/vendor.CHROME_OR_SAFARI}}
+
+
+    {{^vendor.CHROME_OR_SAFARI}}
+
+        {{#product.GECKO}}
+            {{! FF, maybe }}
+            <p>I got it! I know, you're using something called... <strong>Gecko</strong>? What the hell is that? Is that a real browser name?</p>
+            <p>Uh? You're not using that either? Aw, man. Wrong place again. I was looking at the <code>navigator.product</code> property. Damn, I thought that would work!</p>
+
+            {{#ua.FIREFOX}}
+                {{! Really FF }}
+                <p>Wait! I know! You're using <strong>Firefox</strong>! It says so in the end of your <code>navigator.userAgent</code> string! Ha!</p>
+                <p>Now I just need to know your version. You're using Firefox version <strong>{{version.appVersion}}</strong>, right? Right?</p>
+                <p>Wait, wrong again? Are you sure? It says you're using version {{version.appVersion}} right in your browser's <code>navigator.appVersion</code> property!</p>
+                <p>But you know what.... maybe the problem is that your browser's <code>navigator.userAgent</code> says {{version.appVersion}} is the Mozilla version. I thought Firefox and Mozilla were the same thing. I suppose I'm wrong. Maybe I should look again.</p>
+                <p>Well, here's something. The end of <code>navigator.userAgent</code> has the number <strong>{{version.uaFirefox}}</strong>. Is that it?</p>
+                <p>It is? It is?! Incredible! Wow, I finally got it right. Man. That was tougher than I expected!</p>
+            {{/ua.FIREFOX}}
+
+            {{^ua.FIREFOX}}
+                {{! dunno }}
+                {{> broke_joke}}
+            {{/ua.FIREFOX}}
+
+        {{/product.GECKO}}
+
+    {{/vendor.CHROME_OR_SAFARI}}
+
+
+{{/appName.NETSCAPE}}
+
+
+
+{{^appName.NETSCAPE}}
+    {{! Opera and IE use correct names - "Opera" or "Microsoft Internet Explorer" }}
+    <p>I see you're visiting this website using a <strong>Mozilla</strong> browser. Wait, what's that exactly? Is that a real browser name? Isn't that Netscape anyway? Or maybe it's Firebird, or Firefox, right?</p>
+    <p>Oh wait, you're not using a Mozilla, you say? Sorry, my bad. I probably looked in the wrong place. I was looking at your browser's <code>navigator.appCodeName</code> property. It says "Mozilla" right there! But that's not the right place to look, I suppose. I should have known.</p>
+
+
+    {{#appName.OPERA}}
+        {{! Opera gets it (mostly) right }}
+        <p>Ok, I think I got it! You're using <strong>Opera</strong>. Great. I'm glad that browser identifies itself using <code>navigator.appName</code>! That makes it easier, you know.</p>
+        <p>Now I just need to know your version. You're using Opera version <strong>{{version.appVersion}}</strong>, right? Right?</p>
+        <p>Wait, wrong again? Are you sure? It says you're using version {{version.appVersion}} right in your browser's <code>navigator.appVersion</code> property! And then on the beginning of <code>navigator.userAgent</code> again!</p>
+        <p>Alright, alright. Well, maybe I should look again.</p>
+        <p>Well, here's something. In the end of <code>navigator.userAgent</code> there's something that says "Version" with the number <strong>{{version.uaOpera}}</strong> next to it. Is that it?</p>
+        <p>It is? It is?! Incredible! Wow, I finally got it right. Man. That was tougher than I expected!</p>
+    {{/appName.OPERA}}
+
+
+    {{#appName.MSIE}}
+        {{! Surprisingly, MSIE also gets it (mostly) right }}
+        <p>Ok, I got it! You're using <strong>Internet Explorer</strong>. Great. I mean, not great, since it's still Internet Explorer. But at least I know what it is, that's what I mean. I'm just glad that browser identifies itself using <code>navigator.appName</code>! That makes it easier, you know.</p>
+        <p>Now I just need to know your version. You're using Internet Explorer version <strong>{{version.appVersion}}</strong>, right? Holy shit, that's an old version!</p>
+        <p>Wait, wrong again? Are you sure? It says you're using version {{version.appVersion}} right in your browser's <code>navigator.appVersion</code> property!</p>
+        <p>Alright, alright. Well, maybe I should look again.</p>
+        <p>Ah, I see the problem. Your browser's <code>navigator.userAgent</code> says {{version.appVersion}} is the Mozilla version. But you're not using Mozilla, right? Right. So maybe it just thinks it is Mozilla version {{version.appVersion}}. It happens.</p>
+        <p>Well, here's something. Somewhere in the middle of <code>navigator.userAgent</code> there's something that says "MSIE" with the number <strong>{{version.uaMsie}}</strong> next to it. Is that it?</p>
+        <p>It is? It is?! Incredible! Wow, I finally got it right. Man. That was tougher than I expected!</p>
+    {{/appName.MSIE}}
+
+    {{^appName.OPERA}}
+        {{^appName.MSIE}}
+            {{! if it is not Opera or MSIE we don't know what it is }}
+            {{> broke_joke}}
+        {{/appName.MSIE}}
+    {{/appName.OPERA}}
+
+
+{{/appName.NETSCAPE}}
+
+
+{{! System }}
+{{#showOSpunchline}}
+    {{#ua.WIN_NT}}
+        <p>Now I only need to know your operating system. That should be easy; your browser's <code>navigator.userAgent</code> will tell me that. That's <strong>{{version.uaWinNt}}</strong>, right?</p>
+    {{/ua.WIN_NT}}
+    {{! No real punchline for OSX or Linux :( }}
+{{/showOSpunchline}}
+
