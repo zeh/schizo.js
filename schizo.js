@@ -283,7 +283,7 @@ One day, maybe, we'll have navigator properties that make sense.
     // ====================================
     // DO NOT EDIT THESE LINES !!!
     // ------------------------------------
-    // templates are importent during build.
+    // templates are imported during build.
     // run `node build` instead
     // =====================================
     //> templateStart
